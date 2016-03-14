@@ -10,7 +10,7 @@
 
     <groupId>com.codepoetics</groupId>
     <artifactId>ambivalence</artifactId>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
     <packaging>bundle</packaging>
     
     <dependencies>
