@@ -3,6 +3,14 @@ ambivalence
 
 [![Build Status](https://travis-ci.org/poetix/ambivalence.svg?branch=master)](https://travis-ci.org/poetix/ambivalence)
 
+```xml
+<dependency>
+    <groupId>com.codepoetics</groupId>
+    <artifactId>ambivalent</artifactId>
+    <version>0.1</version>
+</dependency>
+```
+
 An `Either` type for Java 8, in case you needed one.
 
 Features:
