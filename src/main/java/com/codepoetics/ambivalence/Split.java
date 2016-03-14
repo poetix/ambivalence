@@ -2,9 +2,10 @@ package com.codepoetics.ambivalence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collector;
 
-public final class Split<L, R> {
+public final class Split<L, R> implements Consumer<Either<? extends L, ? extends R>> {
 
     Split() {
     }
@@ -12,7 +13,8 @@ public final class Split<L, R> {
     private final List<L> lefts = new ArrayList<>();
     private final List<R> rights = new ArrayList<>();
 
-    public void accept(Either<L, R> value) {
+    @Override
+    public void accept(Either<? extends L, ? extends R> value) {
         value.forEither(
                 lefts::add,
                 rights::add
