@@ -1,5 +1,5 @@
-protonpack
-==========
+ambivalence
+===========
 
 [![Build Status](https://travis-ci.org/poetix/ambivalence.svg?branch=master)](https://travis-ci.org/poetix/ambivalence)
 
