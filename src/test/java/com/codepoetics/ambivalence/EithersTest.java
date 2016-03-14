@@ -19,7 +19,7 @@ public class EithersTest {
     public void splitLeftsFromRights() {
         EitherFactory<String, Integer> factory = new EitherFactory<>();
 
-        final EitherSplit<String, Integer> result = Stream.of(
+        final Split<String, Integer> result = Stream.of(
                 factory.makeLeft("foo"),
                 factory.makeRight(12),
                 factory.makeRight(23),
@@ -34,7 +34,7 @@ public class EithersTest {
     public void splitAndCollect() {
         EitherFactory<String, Integer> factory = new EitherFactory<>();
 
-        final SplitResult<String, Integer> result = Stream.of(
+        final CollectedSplit<String, Integer> result = Stream.of(
                 factory.makeLeft("foo"),
                 factory.makeRight(12),
                 factory.makeRight(23),
@@ -47,7 +47,7 @@ public class EithersTest {
 
     @Test
     public void splitAndCollectWithTryable() {
-        SplitResult<String, IOException> result = Stream.of("a", "bee", "cee", "d")
+        CollectedSplit<String, IOException> result = Stream.of("a", "bee", "cee", "d")
                 .map(Tryable.of(c -> {
                     if (c.length() ==1) {
                         return c;

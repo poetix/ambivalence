@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collector;
 
-public final class EitherSplit<L, R> {
+public final class Split<L, R> {
 
-    EitherSplit() {
+    Split() {
     }
 
     private final List<L> lefts = new ArrayList<>();
@@ -19,11 +19,11 @@ public final class EitherSplit<L, R> {
         );
     }
 
-    public <A, L2> SplitResult<L2, R> collectLefts(Collector<? super L, A, ? extends L2> collector) {
-        return new SplitResult<>(lefts.stream().collect(collector), rights);
+    public <A, L2> CollectedSplit<L2, R> collectLefts(Collector<? super L, A, ? extends L2> collector) {
+        return new CollectedSplit<>(lefts.stream().collect(collector), rights);
     }
 
-    public EitherSplit<L, R> combine(EitherSplit<L, R> other) {
+    public Split<L, R> combine(Split<L, R> other) {
         lefts.addAll(other.lefts);
         rights.addAll(other.rights);
         return this;
