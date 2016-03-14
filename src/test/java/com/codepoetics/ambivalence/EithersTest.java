@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.codepoetics.ambivalence.Eithers.split;
 import static com.codepoetics.ambivalence.Eithers.splitAndCollectLeft;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
@@ -23,7 +24,7 @@ public class EithersTest {
                 factory.makeRight(12),
                 factory.makeRight(23),
                 factory.makeLeft("bar")
-        ).collect(Eithers.split());
+        ).collect(split());
 
         assertThat(result.getLefts(), contains("foo", "bar"));
         assertThat(result.getRights(), contains(12, 23));
