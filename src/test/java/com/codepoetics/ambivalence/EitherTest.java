@@ -86,4 +86,20 @@ public class EitherTest {
 
         assertEquals(either.join(Function.identity(), Function.identity()), "23");
     }
+
+    @Test
+    public void projectionStillHasToString() {
+        assertEquals(Either.ofLeft("foo").left().toString(), "left(foo)");
+    }
+
+    @Test
+    public void projectionEqualToEither() {
+        assertEquals(Either.ofLeft("foo"), Either.ofLeft("foo").left());
+        assertEquals(Either.ofLeft("foo").left(), Either.ofLeft("foo").left());
+        assertEquals(Either.ofLeft("foo").right(), Either.ofLeft("foo").left());
+        assertEquals(Either.ofLeft("foo"), Either.ofLeft("foo").right());
+        assertEquals(Either.ofLeft("foo").left(), Either.ofLeft("foo").right());
+        assertEquals(Either.ofLeft("foo").right(), Either.ofLeft("foo").right());
+    }
+
 }
