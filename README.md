@@ -25,5 +25,6 @@ Features:
 Either<String, Integer> stringOrInt1 = Either.ofLeft("a string");
 Either<String, Integer> stringOrInt2 = Either.ofRight(23);
 
-System.out.println(stringOrInt1.join(String::toUpperCase, Object::toString));
+System.out.println(stringOrInt1.join(String::toUpperCase, Object::toString)); // prints "A STRING"
+System.out.println(stringOrInt2.join(String::toUpperCase, Object::toString)); // prints "23"
 ```
